@@ -1,9 +1,11 @@
-import './App.css'
+import Header from './components/Header'
+import Feed from './components/Feed'
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <Header />
+      <Feed />
     </div>
   )
 }
