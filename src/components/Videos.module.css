@@ -1,0 +1,7 @@
+.videos {
+  display: flex;
+  gap: 1.5rem;
+  align-content: flex-start;
+  flex-flow: row wrap;
+  margin: 30px 50px;
+}
