@@ -14,7 +14,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
           {category.name}
         </button>
       ))}
-      <span className={styles.categoryName}>{selectedCategory}</span>
+      {/* <span className={styles.categoryName}>{selectedCategory}</span> */}
     </nav>
   )
 }

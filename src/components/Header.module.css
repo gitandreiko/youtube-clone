@@ -8,11 +8,8 @@
   top: 0;
 }
 
-.searchBar {
-  border-radius: 20px;
-  border: 1px solid #e3e3e3;
-  padding-left: 15px;
-  margin-right: 50px;
-  height: 35px;
-  width: 300px;
+.img {
+  height: 45px;
+  cursor: pointer;
+  margin-left: 15px;
 }

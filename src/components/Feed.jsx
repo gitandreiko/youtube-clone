@@ -20,8 +20,10 @@ const Feed = () => {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      <div style={{ display: 'flex' }}>
-        <span>{selectedCategory}</span>
+      <div>
+        <span className={styles.ctgr}>
+          {selectedCategory} <span style={{ color: '#FC1503' }}>videos</span>
+        </span>
         <Videos vids={videos} />
       </div>
     </div>

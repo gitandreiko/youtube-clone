@@ -1,6 +1,5 @@
 import styles from './Videos.module.css'
 import VideoCard from './VideoCard'
-import { demoProfilePicture } from '../utils/constants'
 
 const Videos = ({ vids }) => {
   // if (!vids.item.id.channelId) return 'Loading...'
