@@ -1,14 +1,26 @@
-import styles from './Videos.module.css'
-import VideoCard from './VideoCard'
+import { Stack, Box } from '@mui/material'
 
-const Videos = ({ vids }) => {
-  // if (!vids.item.id.channelId) return 'Loading...'
+import { ChannelCard, Loader, VideoCard } from './'
+
+const Videos = ({ videos, direction }) => {
+  if (!videos?.length) return <Loader />
+
   return (
-    <div className={styles.videos}>
-      {vids.map((item, idx) => (
-        <div key={idx}>{item.id.videoId && <VideoCard video={item} />}</div>
+    <Stack
+      direction={direction || 'row'}
+      flexWrap="wrap"
+      justifyContent="start"
+      alignItems="start"
+      gap={2}
+    >
+      {videos.map((item, idx) => (
+        <Box key={idx}>
+          {item.id.videoId && <VideoCard video={item} />}
+          {item.id.channelId && <ChannelCard channelDetail={item} />}
+        </Box>
       ))}
-    </div>
+    </Stack>
   )
 }
+
 export default Videos

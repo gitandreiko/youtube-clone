@@ -1,22 +1,42 @@
+import { Stack } from '@mui/material'
+
 import { categories } from '../utils/constants'
-import styles from './Sidebar.module.scss'
 
-const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
-  return (
-    <nav className={styles.sidebar}>
-      {categories.map((category) => (
-        <button
-          className={styles.categoryBtn}
-          key={category.name}
-          onClick={() => setSelectedCategory(category.name)}
+const Categories = ({ selectedCategory, setSelectedCategory }) => (
+  <Stack
+    direction="row"
+    sx={{
+      overflowY: 'auto',
+      height: { sx: 'auto', md: '95%' },
+      flexDirection: { md: 'column' },
+    }}
+  >
+    {categories.map((category) => (
+      <button
+        className="category-btn"
+        onClick={() => setSelectedCategory(category.name)}
+        style={{
+          background: category.name === selectedCategory && '#FC1503',
+          color: 'white',
+        }}
+        key={category.name}
+      >
+        <span
+          style={{
+            color: category.name === selectedCategory ? 'white' : 'red',
+            marginRight: '15px',
+          }}
         >
-          <span className={styles.icon}>{category.icon}</span>
+          {category.icon}
+        </span>
+        <span
+          style={{ opacity: category.name === selectedCategory ? '1' : '0.8' }}
+        >
           {category.name}
-        </button>
-      ))}
-      {/* <span className={styles.categoryName}>{selectedCategory}</span> */}
-    </nav>
-  )
-}
+        </span>
+      </button>
+    ))}
+  </Stack>
+)
 
-export default Sidebar
+export default Categories

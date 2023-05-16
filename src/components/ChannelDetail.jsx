@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Videos from './Videos'
-import ChannelCard from './ChannelCard'
+import { Box } from '@mui/material'
 
+import { Videos, ChannelCard } from './'
 import { fetchFromAPI } from '../utils/fetchFromAPI'
 
 const ChannelDetail = () => {
   const [channelDetail, setChannelDetail] = useState()
-  const [videos, setVideos] = useState([])
+  const [videos, setVideos] = useState(null)
 
   const { id } = useParams()
-  console.log(id)
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -29,8 +28,8 @@ const ChannelDetail = () => {
   }, [id])
 
   return (
-    <div style={{ background: 'black' }}>
-      <div>
+    <Box minHeight="95vh">
+      <Box>
         <div
           style={{
             height: '300px',
@@ -39,18 +38,14 @@ const ChannelDetail = () => {
             zIndex: 10,
           }}
         />
-        <ChannelCard channelDetail={channelDetail} />
-      </div>
-      <Videos vids={videos} />
-    </div>
+        <ChannelCard channelDetail={channelDetail} marginTop="-93px" />
+      </Box>
+      <Box p={2} display="flex">
+        <Box sx={{ mr: { sm: '100px' } }} />
+        <Videos videos={videos} />
+      </Box>
+    </Box>
   )
 }
 
 export default ChannelDetail
-
-{
-  /* <div style={{ padding: '2px', display: 'flex' }}>
-<div style={{}} />
-<Videos vids={videos} />
-</div> */
-}
